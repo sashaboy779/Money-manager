@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Money Manager</PackageId>
+    <Authors>Oleksand Boichuk</Authors>
+    <Description>Api that helps to conveniently manage personal finances</Description>
+    <Copyright>© 2020 Oleksandr Boichuk</Copyright>
+    <Product>Money Manager</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+
+</Project>
