@@ -29,6 +29,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ServiceMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ServiceMessages.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
