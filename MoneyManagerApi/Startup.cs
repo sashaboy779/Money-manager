@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using InfrastructureLayer;
 
 namespace MoneyManagerApi
 {
@@ -25,6 +26,7 @@ namespace MoneyManagerApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.ConfigureDependencyInjection();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
