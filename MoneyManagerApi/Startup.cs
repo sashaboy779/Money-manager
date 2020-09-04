@@ -10,6 +10,10 @@ using System.IO;
 using MoneyManagerApi.Infrastructure.Constants;
 using AutoMapper;
 using System.Reflection;
+using BusinessLogicLayer;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using MoneyManagerApi.Models;
 
 namespace MoneyManagerApi
 {
@@ -36,6 +40,25 @@ namespace MoneyManagerApi
                 Assembly.Load(AppConfiguration.WebApiProject),
                 Assembly.Load(AppConfiguration.BusinessLogicProject));
 
+            services.AddLocalization(options => options.ResourcesPath = AppConfiguration.ResourcesPath);
+            services.AddMvc()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.AllowInputFormatterExceptionMessages = false;
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                })
+                .AddDataAnnotationsLocalization(options =>
+                    options.DataAnnotationLocalizerProvider = (type, factory) =>
+                        factory.Create(typeof(ModelsResources)));
+
+
+            var appSettingsSection = configuration.GetSection(AppConfiguration.AppSettingsSection);
+            services.Configure<AppSettings>(appSettingsSection);
+
+            // Add JWT configuration
+            services.AddHttpContextAccessor();
             services.ConfigureDependencyInjection();
         }
 
@@ -46,16 +69,25 @@ namespace MoneyManagerApi
 
             app.ConfigureExceptionHandler(loggerFactory.CreateLogger<ErrorDetails>());
 
-            app.UseHttpsRedirection();
+            var supportedCultures = AppConfiguration.SupportedCultures;
+            var localizationOptions = new RequestLocalizationOptions()
+                .SetDefaultCulture(AppConfiguration.DefaultCulture)
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            app.UseRequestLocalization(localizationOptions);
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
