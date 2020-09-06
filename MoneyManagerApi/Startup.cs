@@ -14,6 +14,11 @@ using BusinessLogicLayer;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using MoneyManagerApi.Models;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using BusinessLogicLayer.Services.Interfaces;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace MoneyManagerApi
 {
@@ -57,7 +62,7 @@ namespace MoneyManagerApi
             var appSettingsSection = configuration.GetSection(AppConfiguration.AppSettingsSection);
             services.Configure<AppSettings>(appSettingsSection);
 
-            // Add JWT configuration
+            ConfigureJwtAuthentication(appSettingsSection, services);
             services.AddHttpContextAccessor();
             services.ConfigureDependencyInjection();
         }
@@ -88,6 +93,48 @@ namespace MoneyManagerApi
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+        }
+
+        private void ConfigureJwtAuthentication(IConfigurationSection appSettingsSection, IServiceCollection services)
+        {
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = OnTokenValidatedHandler
+                };
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+        }
+
+        private Task OnTokenValidatedHandler(TokenValidatedContext context)
+        {
+            var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+            var userId = int.Parse(context.Principal.Identity.Name);
+            var user = userService.GetByIdAsync(userId);
+
+            if (user == null)
+            {
+                context.Fail(AppConfiguration.Unauthorized);
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

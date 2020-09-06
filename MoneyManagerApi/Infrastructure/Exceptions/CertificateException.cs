@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExpenseManagerApi.Infrastructure.Exceptions
+namespace MoneyManagerApi.Infrastructure.Exceptions
 {
     public class CertificateException : Exception
     {
