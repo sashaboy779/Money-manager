@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.Dto;
-using BusinessLogicLayer.Dto.CategoryDtos;
-using BusinessLogicLayer.Dto.OperationDtos;
-using BusinessLogicLayer.Dto.ReportDtos;
 using BusinessLogicLayer.Dto.UserDtos;
 using BusinessLogicLayer.Dto.WalletDtos;
 using MoneyManagerApi.Models;
 using MoneyManagerApi.Models.Paging;
 using MoneyManagerApi.Models.UserModels;
+using MoneyManagerApi.Models.WalletModels;
 
 namespace MoneyManagerApi.Infrastructure.Profiles
 {
@@ -19,6 +17,7 @@ namespace MoneyManagerApi.Infrastructure.Profiles
             CreateMap<ErrorsDto, Errors>();
 
             CreateUserMap();
+            CreateWalletMap();
         }
 
         private void CreateUserMap()
@@ -26,6 +25,18 @@ namespace MoneyManagerApi.Infrastructure.Profiles
             CreateMap<UserDto, User>();
             CreateMap<RegisterUserModel, UserDto>();
             CreateMap<UpdateUserModel, UserDto>().ReverseMap();
-        }  
+        }
+
+        private void CreateWalletMap()
+        {
+            CreateMap<Wallet, WalletDto>().ReverseMap();
+            CreateMap<Wallet, CreateWalletModel>().ReverseMap();
+            CreateMap<WalletDto, CreateWalletModel>().ReverseMap();
+            CreateMap<Currency, CurrencyDto>().ReverseMap();
+
+            CreateMap<CreateWalletModel, WalletDto>().ReverseMap();
+            CreateMap<UpdateWalletModel, UpdateWalletDto>().ReverseMap();
+        }
+
     }
 }

@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using BusinessLogicLayer.Services.Interfaces;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using MoneyManagerApi.Infrastructure.ValidationAttributes;
 
 namespace MoneyManagerApi
 {
@@ -63,6 +65,7 @@ namespace MoneyManagerApi
             services.Configure<AppSettings>(appSettingsSection);
 
             ConfigureJwtAuthentication(appSettingsSection, services);
+            services.AddSingleton<IValidationAttributeAdapterProvider, CustomValidationAdapterProvider>();
             services.AddHttpContextAccessor();
             services.ConfigureDependencyInjection();
         }
