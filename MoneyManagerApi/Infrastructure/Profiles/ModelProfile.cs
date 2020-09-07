@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.Dto;
 using BusinessLogicLayer.Dto.CategoryDtos;
+using BusinessLogicLayer.Dto.OperationDtos;
 using BusinessLogicLayer.Dto.UserDtos;
 using BusinessLogicLayer.Dto.WalletDtos;
 using MoneyManagerApi.Models;
 using MoneyManagerApi.Models.CategoryModels;
+using MoneyManagerApi.Models.OperationModels;
 using MoneyManagerApi.Models.Paging;
 using MoneyManagerApi.Models.UserModels;
 using MoneyManagerApi.Models.WalletModels;
@@ -21,6 +23,7 @@ namespace MoneyManagerApi.Infrastructure.Profiles
             CreateUserMap();
             CreateWalletMap();
             CreateCategoryMap();
+            CreateOperationMap();
         }
 
         private void CreateUserMap()
@@ -55,6 +58,14 @@ namespace MoneyManagerApi.Infrastructure.Profiles
             CreateMap<Subcategory, SubcategoryDto>().ReverseMap();
             CreateMap<CreateCategoryModel, MainCategoryDto>().ReverseMap();
             CreateMap<UpdateCategoryModel, UpdateCategoryDto>().ReverseMap();
+        }
+
+        private void CreateOperationMap()
+        {
+            CreateMap<Operation, OperationDto>().ReverseMap();
+            CreateMap<OperationDto, WalletOperationModel>();
+            CreateMap<CreateOperationModel, OperationDto>().ReverseMap();
+            CreateMap<UpdateOperationModel, UpdateOperationDto>().ReverseMap();
         }
     }
 }

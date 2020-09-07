@@ -6,6 +6,7 @@
         public const string Id = "{id}";
         public const string SignIn = "signin";
         public const string Register = "register";
+        public const string WalletOperations = "wallets/{walletId}";
 
         public const string ShowWallet = "ShowWallet";
         public const string ShowDailyReport = "ShowDailyReport";
