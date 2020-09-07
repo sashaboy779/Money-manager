@@ -13,5 +13,6 @@
         public const string BalanceRequired = "BalanceRequired";
         public const string WalletIdRequired = "WalletIdRequired";
         public const string NotUnknownCurrency = "NotUnknownCurrency";
+        public const string CategoryNameRequired = "CategoryNameRequired";
     }
 }

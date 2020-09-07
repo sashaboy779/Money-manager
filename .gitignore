@@ -342,7 +342,7 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-/ExchangeRateBot/Properties/
+/MoneyManagerApi/Properties/
 !AssemblyInfo.cs
 *.db
-/MoneyManager/Logs
+/MoneyManagerApi/Logs

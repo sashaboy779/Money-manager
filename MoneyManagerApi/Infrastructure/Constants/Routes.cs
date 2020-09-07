@@ -12,5 +12,6 @@
         public const string ShowMonthlyReport = "ShowMonthlyReport";
         public const string ShowYearlyReport = "ShowYearlyReport";
         public const string ShowOperation = "ShowOperation";
+        public const string ShowCategory = "ShowCategory";
     }
 }
