@@ -7,7 +7,7 @@
     <Description>Api that helps to conveniently manage personal finances</Description>
     <Copyright>© 2020 Oleksandr Boichuk</Copyright>
     <Product>Money Manager</Product>
-    <Version>2.14.0</Version>
+    <Version>2.15.0</Version>
     <UserSecretsId>3ed29260-670f-401f-b73a-1260f6a90c61</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
