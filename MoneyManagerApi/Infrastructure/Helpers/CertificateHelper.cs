@@ -1,5 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
-using ExpenseManagerApi.Infrastructure.Exceptions;
+using MoneyManagerApi.Infrastructure.Exceptions;
 
 namespace MoneyManagerApi.Infrastructure.Helpers
 {

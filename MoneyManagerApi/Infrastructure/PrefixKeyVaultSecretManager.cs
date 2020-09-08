@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
 
-namespace ExpenseManagerApi.Infrastructure
+namespace MoneyManagerApi.Infrastructure
 {
     public class PrefixKeyVaultSecretManager : IKeyVaultSecretManager
     {
