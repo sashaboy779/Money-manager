@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Money Manager</PackageId>
+    <Authors>Oleksand Boichuk</Authors>
+    <Company>Oleksand Boichuk</Company>
+    <Product>Money Manager</Product>
+    <Description>UI for Money Manager API</Description>
+    <Copyright>© 2020 Oleksandr Boichuk</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+</Project>
