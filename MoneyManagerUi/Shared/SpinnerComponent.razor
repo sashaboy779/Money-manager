@@ -1,0 +1,12 @@
+﻿@using BlazorPro.Spinkit
+
+<SpinLoader IsLoading="IsSpinnerLoading">
+    <LoadingTemplate>
+        <div class="center-container" style="height:@SetHeight()">
+            <Flow Center="true" Color="#7b68ee"></Flow>
+        </div>
+    </LoadingTemplate>
+    <ContentTemplate>
+        @ChildContent
+    </ContentTemplate>
+</SpinLoader>

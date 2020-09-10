@@ -1,0 +1,10 @@
+﻿<div>
+    @if (Errors.Any())
+    {
+        <p class="validation-message">@Errors.ModelErrors.First()</p>
+    }
+    else
+    {
+        <p>&nbsp;</p>
+    }
+</div>

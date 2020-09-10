@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
 using Constants = MoneyManagerUi.Infrastructure.Constants.Configuration;
+using Blazored.Modal;
+using Blazored.SessionStorage;
 
 namespace MoneyManagerUi
 {
@@ -27,6 +29,7 @@ namespace MoneyManagerUi
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddBlazoredModal();
             services.AddControllers();
             services.AddAutoMapper(Assembly.Load(Constants.AssemblyName));
 
@@ -34,6 +37,7 @@ namespace MoneyManagerUi
             services.Configure<AppSettings>(appSettingsSection);
 
             services.AddScoped<IUserService, UserService>();
+            services.AddBlazoredSessionStorage();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IStorageService, StorageService>();
             services.AddScoped<IWalletService, WalletService>();
