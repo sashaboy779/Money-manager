@@ -1,0 +1,40 @@
+﻿@inherits EditOperationComponent
+
+<SpinnerComponent IsSpinnerLoading="!isPageLoaded" IsInModal="true">
+    <div class="modal-window">
+        @if (userCategories.Count == 0)
+        {
+            <NoCategories />
+        }
+        else
+        {
+            <EditForm Model="Model" OnValidSubmit="InvokeModelFunctionAsync">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <div class="form-group">
+                    <label for="category">@Resource.Category</label>
+                    <InputSelectNumber @bind-Value="Model.CategoryId" id="category" class="form-control">
+                        @foreach (var category in userCategories)
+                            {
+                            <option value="@category.CategoryId" class="font-weight-bold">@category.Name</option>
+
+                            @foreach (var subcategory in category.Subcategories)
+                                {
+                                <option value="@subcategory.CategoryId">@subcategory.Name</option>
+                                }
+                            }
+                    </InputSelectNumber>
+                </div>
+                <DatePicker OnDateSelected="(selectedDate) => Model.OperationDate = selectedDate.Value.DateTime" />
+                <div class="form-group">
+                    <label for="note">@Resource.Note</label>
+                    <InputTextArea @bind-Value="Model.Note" id="note" class="form-control" />
+                </div>
+                <div class="one-row-btns">
+                    <button type="submit" class="default-btn create">@Resource.Save</button>
+                    <button @onclick="Cancel" class="default-btn cancel">@Resource.Cancel</button>
+                </div>
+            </EditForm>
+        }
+    </div>
+</SpinnerComponent>

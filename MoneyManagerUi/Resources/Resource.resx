@@ -360,6 +360,9 @@
   <data name="Select" xml:space="preserve">
     <value>Select...</value>
   </data>
+  <data name="SelectedNotNumber" xml:space="preserve">
+    <value>The chosen value is not a valid number.</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select your language</value>
   </data>

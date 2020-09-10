@@ -790,6 +790,15 @@ namespace MoneyManagerUi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The chosen value is not a valid number..
+        /// </summary>
+        public static string SelectedNotNumber {
+            get {
+                return ResourceManager.GetString("SelectedNotNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select your language.
         /// </summary>
         public static string SelectLanguage {

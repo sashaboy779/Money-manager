@@ -1,0 +1,99 @@
+@page "/wallets"
+@inherits WalletsComponent
+
+<SpinnerComponent IsSpinnerLoading="!IsPageLoaded">
+    @if (userWallets.Count() != 0)
+    {
+        <div class="two-block-flex">
+            <h1 class="title">
+                @selectedWallet.Name
+            </h1>
+            <div class="wallet-actions">
+                <btn type="button" class="default-btn edit" @onclick="ShowEditModal">@Resource.Edit</btn>
+                <btn type="button" class="default-btn create" @onclick="ShowCreateModal">@Resource.Create</btn>
+                <btn type="button" class="default-btn delete" @onclick="ShowDeleteModal">@Resource.Delete</btn>
+            </div>
+        </div>
+        <div class="wallet-infos">
+            <ul>
+                <li><i class="fas fa-wallet"></i><strong>@Resource.CurrencyItem </strong>@selectedWallet.Currency.ToString()</li>
+                <li><i class="fas fa-coins"></i><strong>@Resource.BalanceItem </strong>@selectedWallet.Balance </li>
+                <li><i class="fas fa-sort-up"></i><strong>@Resource.MonthlyIncomeItem </strong>@monthlyReport.Income</li>
+                <li><i class="fas fa-sort-down"></i><strong>@Resource.MonthlyExpanseItem </strong>@monthlyReport.Expense</li>
+            </ul>
+        </div>
+        <div>
+            <h1 class="title">@Resource.YourWallets</h1>
+            <ul>
+                @foreach (var wallet in userWallets)
+                {
+                    <li @onclick="() => ChangeSelectedWallet(wallet)" class="wallets-list-item">@wallet.Name</li>
+                }
+            </ul>
+        </div>
+        <div class="two-block-flex">
+            <h1 class="title">@Resource.WalletOperations</h1>
+            <div class="wallet-actions">
+                <btn type="button" @onclick="ShowCreateOperationModal" class="default-btn create">@Resource.AddOperation</btn>
+            </div>
+        </div>
+        @if (!walletOperations.Data.Any())
+        {
+            <p>@Resource.NoWalletOperations</p>
+        }
+        else
+        {
+            <div class="wallet-operations-table">
+                <table class="table table-sm table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>@Resource.Date</th>
+                            <th>@Resource.Category</th>
+                            <th>@Resource.Amount</th>
+                            <th>@Resource.Note</th>
+                            <th>@Resource.Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var operation in walletOperations.Data)
+                        {
+                            <tr>
+                                <td>@operation.OperationDate.Date.ToShortDateString()</td>
+                                <td>@operation.Category.Name</td>
+                                <td>@operation.Amount</td>
+                                <td>@operation.Note</td>
+                                <td>
+                                    <span class="hint--top hint--rounded" data-hint="@Resource.EditOperationTitle">
+                                        <i @onclick="() => ShowEditOperationModal(operation)" class="far fa-edit operation-btn"></i>
+                                    </span>
+                                    <span class="hint--top hint--rounded" data-hint="@Resource.DeleteOperation">
+                                        <i @onclick="() => ShowDeleteOperationModal(operation)" class="far fa-trash-alt operation-btn"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="one-row-btns">
+                    @if (!string.IsNullOrEmpty(walletOperations.PreviousPage))
+                    {
+                        <button @onclick="() => SetWalletOperations(walletOperations.PageNumber.Value - 1)" 
+                                class="default-btn info">&laquo;</button>
+                    }
+                    @if (!string.IsNullOrEmpty(walletOperations.NextPage))
+                    {
+                        <button @onclick="() => SetWalletOperations(walletOperations.PageNumber.Value + 1)" 
+                            class="default-btn info">&raquo;</button>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <NoContent CreateContent="ShowCreateModal">
+            <p>@Resource.NoWallets</p>
+        </NoContent>
+    }
+</SpinnerComponent>
