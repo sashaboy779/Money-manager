@@ -8,10 +8,39 @@
     <Product>Money Manager</Product>
     <Description>UI for Money Manager API</Description>
     <Copyright>© 2020 Oleksandr Boichuk</Copyright>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="BlazorDateRangePicker" Version="2.9.0" />
+    <PackageReference Include="Blazored.Modal" Version="5.0.3" />
+    <PackageReference Include="Blazored.SessionStorage" Version="1.0.12" />
+    <PackageReference Include="BlazorPro.Spinkit" Version="1.2.0" />
+    <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ModelsResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModelsResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ModelsResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModelsResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>MoneyManagerUi.Data</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
