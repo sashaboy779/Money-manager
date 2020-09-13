@@ -8,7 +8,7 @@
     <Product>Money Manager</Product>
     <Description>UI for Money Manager API</Description>
     <Copyright>© 2020 Oleksandr Boichuk</Copyright>
-    <Version>1.8.0</Version>
+    <Version>1.9.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -53,9 +53,16 @@
       <LastGenOutput>ModelsResources.Designer.cs</LastGenOutput>
       <CustomToolNamespace>MoneyManagerUi.Data</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ModelsResources.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>MoneyManagerUi.Data</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
 

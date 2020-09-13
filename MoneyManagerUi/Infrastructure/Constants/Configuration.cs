@@ -15,5 +15,10 @@ namespace MoneyManagerUi.Infrastructure.Constants
         public static string JsonContentType => "application/json";
         public static string UserAgentKey => "User-Agent";
         public static string UserAgentValue => "MoneyManagerUi";
+        public static string EnglishCulture => "en-US";
+        public static string UkraineCulture => "uk-UA";
+        public static string Culture => "culture=";
+        public static string Redirect => "redirectUri=";
+        public const string ControllerRouteTemplate = "[controller]/[action]";
     }
 }
