@@ -1,0 +1,63 @@
+﻿@page "/categories"
+@inherits CategoriesComponent
+
+<SpinnerComponent IsSpinnerLoading="!IsPageLoaded">
+    @if (userCategories.Count == 0)
+    {
+        <NoContent CreateContent="ShowCreateModal">
+            <p>@Resource.NoCategories</p>
+        </NoContent>
+    }
+    else
+    {
+        <div class="two-block-flex">
+            <h1 class="title">@Resource.Categories</h1>
+            <div class="center-btns">
+                <btn @onclick="ShowCreateModal" class="default-btn create">@Resource.Create</btn>
+            </div>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="category-name">@Resource.Name</th>
+                        <th>@Resource.Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in userCategories)
+                    {
+                        <tr>
+                            <td>@category.Name</td>
+                            <td>
+                                <span class="hint--top hint--rounded" data-hint="@Resource.EditCategory">
+                                    <i @onclick="() => ShowEditModal(category)" class="far fa-edit operation-btn"></i>
+                                </span>
+                                <span class="hint--top hint--rounded" data-hint="@Resource.DeleteCategory">
+                                    <i @onclick="() => ShowDeleteModal(category)" class="far fa-trash-alt operation-btn"></i>
+                                </span>
+                                <span class="hint--top hint--rounded" data-hint="@Resource.AddSubcategory">
+                                    <i @onclick="() => ShowCreateSubcategoryModal(category)" class="far fa-plus-square operation-btn"></i>
+                                </span>
+                            </td>
+                        </tr>
+                        foreach (var subcategory in category.Subcategories)
+                        {
+                            <tr class="subcategory-item">
+                                <td>@subcategory.Name</td>
+                                <td class="subcategory-btns">
+                                    <span class="hint--top hint--rounded" data-hint="@Resource.EditSubcategory">
+                                        <i @onclick="() => ShowEditModal(subcategory)" class="far fa-edit operation-btn"></i>
+                                    </span>
+                                    <span class="hint--top hint--rounded" data-hint="@Resource.DeleteSubcategory">
+                                        <i @onclick="() => ShowDeleteModal(subcategory)" class="far fa-trash-alt operation-btn"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</SpinnerComponent>

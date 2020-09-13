@@ -1,0 +1,19 @@
+﻿@inherits ModalComponent<CategoryModel>
+@using CategoryModel = MoneyManagerUi.Data.Category.Category 
+
+<EditForm Model="Model" OnValidSubmit="InvokeModelFunctionAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="validation-message">
+        @ErrorMessage
+    </p>
+    <div class="form-group">
+        <label for="name">@Resource.Name</label>
+        <InputText @oninput="ClearError" @bind-Value="Model.Name"
+                   @attributes="UniqueName.AddClassesForName(ErrorMessage)" id="name" />
+    </div>
+    <div class="one-row-btns">
+        <button type="submit" class="default-btn create">@Resource.Create</button>
+        <button @onclick="Cancel" class="default-btn cancel">@Resource.Cancel</button>
+    </div>
+</EditForm>

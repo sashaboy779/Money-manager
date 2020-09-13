@@ -1,10 +1,12 @@
 ﻿@import url("../css/open-iconic/font/css/open-iconic-bootstrap.min.css");
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
-@import '_utilities.scss';
-@import '_login.scss';
-@import '_buttons.scss';
-@import '_wallets.scss';
+@import 'utilities.scss';
+@import 'login.scss';
+@import 'buttons.scss';
+@import 'datepicker.scss';
+@import 'wallets.scss';
+@import 'categories.scss';
 
 body {
     margin: 0;
