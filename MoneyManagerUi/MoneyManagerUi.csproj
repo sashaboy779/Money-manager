@@ -8,7 +8,7 @@
     <Product>Money Manager</Product>
     <Description>UI for Money Manager API</Description>
     <Copyright>© 2020 Oleksandr Boichuk</Copyright>
-    <Version>1.9.0</Version>
+    <Version>1.10.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

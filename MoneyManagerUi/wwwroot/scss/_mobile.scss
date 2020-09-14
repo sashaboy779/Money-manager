@@ -1,0 +1,34 @@
+﻿@media (max-width: 500px) {
+    .half-container {
+        width: 100%;
+    }
+
+    .wallet-actions {
+        margin-top: 7px;
+    }
+
+    .wallet-operations-table {
+        overflow: auto;
+        margin-top: 20px;
+    }
+
+    .title {
+        font-size: 27px;
+    }
+
+    .default-btn {
+        margin: 4px 1px;
+    }
+
+    .main-title {
+        font-size: 38px;
+    }
+
+    .category-name {
+        width: 55%;
+    }
+
+    [class*="hint--"]:hover:before, [class*="hint--"]:hover:after {
+        visibility: hidden;
+    }
+}
