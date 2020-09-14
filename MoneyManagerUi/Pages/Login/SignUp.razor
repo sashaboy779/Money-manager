@@ -1,0 +1,32 @@
+﻿@page  "/signup"
+@inherits LoginBase
+@using MoneyManagerUi.Infrastructure.Constants
+
+<SpinnerComponent IsSpinnerLoading="IsSpinnerLoading">
+    <EditForm EditContext="EditContext" @oninput="ClearErrors" OnSubmit="ValidateUser">
+        <DataAnnotationsValidator />
+        <div class="flex-sm-column">
+            <h1 class="title">@Resource.Registration</h1>
+            <div class="p-0">
+                <ModelError Errors="ValidationErrors" />
+            </div>
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="user.FirstName" placeholder="@Resource.FirstName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="user.LastName" placeholder="@Resource.LastName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="user.Username" placeholder="@Resource.Username" class="form-control" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="user.Password" type="password" placeholder="@Resource.Password" class="form-control" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="user.PasswordConfirm" type="password" placeholder="@Resource.PasswordConfirm" class="form-control" />
+        </div>
+        <input type="submit" class="default-btn login-btn" value="@Resource.LoginButton">
+        <a href="@Routes.Login">@Resource.HaveAccount</a>
+    </EditForm>
+</SpinnerComponent>

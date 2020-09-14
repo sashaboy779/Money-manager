@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="AddOperation" xml:space="preserve">
+    <value>Add operation</value>
+  </data>
+  <data name="AddSubcategory" xml:space="preserve">
+    <value>Add subcategory</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AmountItem" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="BalanceItem" xml:space="preserve">
+    <value>Balance:</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="CategoryItem" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateCategoryFirst" xml:space="preserve">
+    <value>Create a category first to add a wallet operation</value>
+  </data>
+  <data name="CreateCategoryTitle" xml:space="preserve">
+    <value>Create category</value>
+  </data>
+  <data name="CreateOperatioinTitle" xml:space="preserve">
+    <value>Create Operation</value>
+  </data>
+  <data name="CreateReport" xml:space="preserve">
+    <value>Create report</value>
+  </data>
+  <data name="CreateSubcategoryTitle" xml:space="preserve">
+    <value>Create subcategory</value>
+  </data>
+  <data name="CreateWallet" xml:space="preserve">
+    <value>Create wallet</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="CurrencyItem" xml:space="preserve">
+    <value>Currency:</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateError" xml:space="preserve">
+    <value>Ending date must be greater than starting date</value>
+  </data>
+  <data name="DateItem" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteCategory" xml:space="preserve">
+    <value>Delete category</value>
+  </data>
+  <data name="DeleteOperation" xml:space="preserve">
+    <value>Delete operation</value>
+  </data>
+  <data name="DeleteOperationTitle" xml:space="preserve">
+    <value>Delete operation?</value>
+  </data>
+  <data name="DeleteSubcategory" xml:space="preserve">
+    <value>Delete subcategory</value>
+  </data>
+  <data name="DeleteTitle" xml:space="preserve">
+    <value>Delete {0}?</value>
+  </data>
+  <data name="DevelopmentError" xml:space="preserve">
+    <value>An unhandled exception has occurred. See browser dev tools for details.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditCategory" xml:space="preserve">
+    <value>Edit category</value>
+  </data>
+  <data name="EditOperationTitle" xml:space="preserve">
+    <value>Edit operation</value>
+  </data>
+  <data name="EditSubcategory" xml:space="preserve">
+    <value>Edit subcategory</value>
+  </data>
+  <data name="EditTitle" xml:space="preserve">
+    <value>Edit {0}</value>
+  </data>
+  <data name="EndingBalanceItem" xml:space="preserve">
+    <value>Ending balance:</value>
+  </data>
+  <data name="EndingDate" xml:space="preserve">
+    <value>Ending date</value>
+  </data>
+  <data name="ExpenseItem" xml:space="preserve">
+    <value>Expense:</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="GoToWallets" xml:space="preserve">
+    <value>Go to wallets page</value>
+  </data>
+  <data name="HaveAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="IncomeItem" xml:space="preserve">
+    <value>Income:</value>
+  </data>
+  <data name="IndexInfo" xml:space="preserve">
+    <value>The easiest way to manage personal finances</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="MonthlyExpanseItem" xml:space="preserve">
+    <value>Monthly expense:</value>
+  </data>
+  <data name="MonthlyIncomeItem" xml:space="preserve">
+    <value>Monthly income:</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameItem" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>Doesn't have an account?</value>
+  </data>
+  <data name="NoCategories" xml:space="preserve">
+    <value>It seems there are no categories created yet</value>
+  </data>
+  <data name="NoPage" xml:space="preserve">
+    <value>Sorry, there's nothing at this address.</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="NoteItem" xml:space="preserve">
+    <value>Note:</value>
+  </data>
+  <data name="NoWalletOperations" xml:space="preserve">
+    <value>There are no wallet operations yet</value>
+  </data>
+  <data name="NoWallets" xml:space="preserve">
+    <value>It seems there are no wallets created yet</value>
+  </data>
+  <data name="OpeningBalanceItem" xml:space="preserve">
+    <value>Opening balance:</value>
+  </data>
+  <data name="ParentCategoryName" xml:space="preserve">
+    <value>Parent category name</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="ProductionError" xml:space="preserve">
+    <value>An error has occurred. This application may no longer respond until reloaded.</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="ReportNameItem" xml:space="preserve">
+    <value>Report name:</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>Report type</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select...</value>
+  </data>
+  <data name="SelectedNotNumber" xml:space="preserve">
+    <value>The chosen value is not a valid number.</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select your language</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="StartingDate" xml:space="preserve">
+    <value>Starting date</value>
+  </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>{0} Error</value>
+  </data>
+  <data name="SubcategoryName" xml:space="preserve">
+    <value>Subcategory name</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="WalletOperations" xml:space="preserve">
+    <value>Wallet operations</value>
+  </data>
+  <data name="Wallets" xml:space="preserve">
+    <value>Wallets</value>
+  </data>
+  <data name="WantDeleteCategory" xml:space="preserve">
+    <value>Are you sure want to delete this category?</value>
+  </data>
+  <data name="WantDeleteOperation" xml:space="preserve">
+    <value>Are you sure want to delete this operation?</value>
+  </data>
+  <data name="WantDeleteWallet" xml:space="preserve">
+    <value>Are you sure want to delete this wallet?</value>
+  </data>
+  <data name="Yearly" xml:space="preserve">
+    <value>Yearly</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YourWallets" xml:space="preserve">
+    <value>Your wallets</value>
+  </data>
+</root>

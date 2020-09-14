@@ -1,0 +1,14 @@
+﻿@page "/"
+@using MoneyManagerUi.Infrastructure.Constants
+
+<div class="center-container">
+    <h1 class="main-title">Money manager</h1>
+
+    <div>
+        @Resource.IndexInfo
+    </div>
+
+    <a href="@Routes.Wallets" class="default-btn">
+        @Resource.GetStarted
+    </a>
+</div>

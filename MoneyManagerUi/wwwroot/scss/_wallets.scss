@@ -1,0 +1,64 @@
+﻿.fa-edit.far:hover {
+    color: $edit-color;
+}
+
+.fa-trash-alt.far:hover {
+    color: $delete-color;
+}
+
+.fa-plus-square.far:hover {
+    color: $create-color;
+}
+
+.wallet-actions {
+    margin: auto 0;
+}
+
+.wallet-infos {
+    margin-top: 20px;
+    position: relative;
+
+    li {
+        padding-left: 30px;
+    }
+
+    .fas {
+        position: absolute;
+    }
+
+    .fa-wallet {
+        top: 5px;
+        left: 6px;
+        color: chocolate;
+    }
+
+    .fa-coins {
+        top: 29px;
+        left: 6px;
+        color: $edit-color;
+    }
+
+    .fa-sort-up {
+        top: 57px;
+        left: 9px;
+        color: $create-color;
+    }
+
+    .fa-sort-down {
+        left: 9px;
+        color: $delete-color;
+    }
+}
+
+.wallets-list-item {
+    display: table;
+
+    &:hover {
+        color: $primary-color;
+        cursor: pointer;
+    }
+}
+
+.wallet-operations-table {
+    margin-top: 10px;
+}

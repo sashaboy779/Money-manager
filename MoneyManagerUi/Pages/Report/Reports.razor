@@ -1,0 +1,78 @@
+﻿@page "/reports"
+@inherits ReportsComponent
+@using MoneyManagerUi.Data.Report
+
+<SpinnerComponent IsSpinnerLoading="!isPageLoaded">
+    @if (userWallets.Any())
+    {
+        <h1 class="title">@Resource.CreateReport</h1>
+        <div class="half-container">
+            <p class="validation-message">@validationError</p>
+            <EditForm Model="reportRequest" @oninput="ClearError">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="walletId">@Resource.Wallet</label>
+                    </div>
+                    <InputSelectNumber @bind-Value="reportRequest.WalletId" class="custom-select" id="walletId">
+                        @foreach (var wallet in userWallets)
+                            {
+                            <option value="@wallet.WalletId">@wallet.Name</option>
+                            }
+                    </InputSelectNumber>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="reportType">@Resource.ReportType</label>
+                    </div>
+                    <InputSelect @bind-Value="reportRequest.ReportType" class="custom-select" id="reportType">
+                        <option value="@ReportType.Daily" selected>@Resource.Daily</option>
+                        <option value="@ReportType.Monthly">@Resource.Monthly</option>
+                        <option value="@ReportType.Yearly">@Resource.Yearly</option>
+                        <option value="@ReportType.Custom">@Resource.Custom</option>
+                    </InputSelect>
+                </div>
+                @if (reportRequest.ReportType == ReportType.Custom)
+                {
+                    <DatePicker Title="@Resource.StartingDate" OnDateSelected="(date) => { ClearError(); reportRequest.StartingDate = date.Value.DateTime; }" />
+                    <DatePicker Title="@Resource.EndingDate" OnDateSelected="(date) => { ClearError(); reportRequest.EndingDate = date.Value.DateTime; }" />
+                }
+                else
+                {
+                    <DatePicker OnDateSelected="(date) => reportRequest.DateInRange = date.Value.DateTime" />
+                }
+                <div class="one-row-btns">
+                    <btn @onclick="LoadReport" type="submit" class="default-btn create">@Resource.Show</btn>
+                </div>
+            </EditForm>
+        </div>
+    }
+    else
+    {
+        <NoContent CreateRoute="@Routes.Wallets" Text="@Resource.GoToWallets">
+            <p>@Resource.NoWallets</p>
+        </NoContent>
+    }
+</SpinnerComponent>
+
+<div class="half-container">
+    <SpinnerComponent IsSpinnerLoading="isReportLoading" Height="220px">
+        @if (reportResult != null)
+        {
+            <ul>
+                <li><strong>@Resource.ReportNameItem </strong>@reportResult.Name</li>
+                <li><strong>@Resource.CurrencyItem </strong>@reportResult.Currency</li>
+                <li><strong>@Resource.IncomeItem </strong>@reportResult.Income</li>
+                <li><strong>@Resource.ExpenseItem </strong>@reportResult.Expense</li>
+                <li><strong>@Resource.OpeningBalanceItem </strong>@reportResult.OpeningBalance</li>
+                <li><strong>@Resource.EndingBalanceItem </strong>@reportResult.EndingBalance</li>
+            </ul>
+            @if (reportResult is ReportWithLinks report)
+            {
+                <div class="one-row-btns">
+                    <button @onclick="() => LoadReportByLink(report.PreviousReport)" class="default-btn info">&laquo;</button>
+                    <button @onclick="() => LoadReportByLink(report.NextReport)" class="default-btn info">&raquo;</button>
+                </div>
+            }
+        }
+    </SpinnerComponent>
+</div>

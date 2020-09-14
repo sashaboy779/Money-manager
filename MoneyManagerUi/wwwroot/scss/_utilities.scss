@@ -1,0 +1,109 @@
+﻿$primary-color: #7b68ee;
+$error-color: red;
+$valid-color: #26b050;
+$edit-color: #f3ca13;
+$create-color: #069206;
+$delete-color: #ec4242;
+$cancel-color: #808080;
+$info-color: #0080FF;
+$bootstrap-border-color: #ced4da;
+
+.content {
+    max-width: 1300px;
+    padding: 10px 30px 20px 30px;
+    margin: 0 auto;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    text-align: center;
+}
+
+.half-container {
+    width: 50%;
+
+    .modified {
+        &.valid {
+            &:not([type="checkbox"]) {
+                border: 1px solid $bootstrap-border-color;
+            }
+        }
+    }
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+.two-block-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.one-row-btns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.modal-window {
+    width: 280px;
+}
+
+.operation-btn {
+    padding-right: 10px;
+}
+
+.modified {
+    &.valid {
+        &:not([type="checkbox"]) {
+            border: 1px solid $valid-color;
+        }
+    }
+
+    &.invalid {
+        &:not([type="checkbox"]) {
+            border: 1px solid $error-color;
+        }
+    }
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
+    .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+}
+
+@mixin set-button-color($color) {
+    border-color: $color;
+    background-color: transparentize($color, 0.6);
+
+    &:hover {
+        background-color: $color;
+    }
+}

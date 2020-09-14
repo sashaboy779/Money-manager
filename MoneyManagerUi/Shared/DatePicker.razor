@@ -1,0 +1,15 @@
+﻿@inherits DatePickerComponent
+@using BlazorDateRangePicker
+
+<div class="form-group">
+    <label for="date">@Title</label>
+    <DateRangePicker @onfocus="() => isDateChanged = true"
+                     @bind-StartDate="SelectedDate" SingleDatePicker="true"
+                     id="date" autocomplete="off">
+        <PickerTemplate>
+            <div id="@context.ParentId" @onclick="context.Toggle" class="@DatePickerClasses">
+                @SelectedDate.Value.DateTime.ToShortDateString()
+            </div>
+        </PickerTemplate>
+    </DateRangePicker>
+</div>

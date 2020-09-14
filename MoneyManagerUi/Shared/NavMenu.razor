@@ -1,0 +1,46 @@
+﻿@inherits NavMenuComponent
+@using MoneyManagerUi.Infrastructure.Constants
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6E5DD6">
+    <div class="container">
+        <a class="navbar-brand" href="@Routes.Home">
+            <img src="/images/money-bag.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Money Manager
+        </a>
+        <button class="navbar-toggler" type="button" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="@NavMenuCssClass navbar-collapse" @onclick="ToggleNavMenu">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <AuthorizeView>
+                    <Authorized>
+                        <li class="nav-item">
+                            <a class="nav-link @TryAddActive(Routes.Wallets)" href="@Routes.Wallets">@Resource.Wallets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @TryAddActive(Routes.Categories)" href="@Routes.Categories">@Resource.Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @TryAddActive(Routes.Reports)" href="@Routes.Reports">@Resource.Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @TryAddActive(Routes.Settings)" href="@Routes.Settings">@Resource.Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" @onclick="(() => Logout())">@Resource.Logout</a>
+                        </li>
+                    </Authorized>
+                    <NotAuthorized>
+                        <li class="float-right nav-item">
+                            <a class="nav-link" href="@Routes.Login" target="_blank">@Resource.Login</a>
+                        </li>
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="@Routes.SignUp" target="_blank">@Resource.SignUp</a>
+                        </li>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </ul>
+        </div>
+    </div>
+</nav>

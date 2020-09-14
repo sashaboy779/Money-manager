@@ -1,0 +1,15 @@
+﻿@page "/settings"
+@inherits SettingsComponent
+
+<h1 class="title">@Resource.Settings</h1>
+
+<div class="half-container">
+    <div class="form-group">
+        <label for="language">@Resource.SelectLanguage</label>
+        <select class="form-control" id="language" @onchange="OnSelected">
+            <option>@Resource.Select</option>
+            <option value="@Configuration.EnglishCulture">English</option>
+            <option value="@Configuration.UkraineCulture">Українська</option>
+        </select>
+    </div>
+</div>
