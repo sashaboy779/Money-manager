@@ -1,2 +1,0 @@
-start "Secret manager initialization" /d  "./MoneyManagerApi" /b dotnet user-secrets init
-start /d "./MoneyManagerApi" /b dotnet user-secrets set "AppSettings:Secret" "b8fbf619-c043-499e-a598-2015a05cbee7"
