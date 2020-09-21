@@ -17,6 +17,6 @@ ASP.NET Core Web API, SQL Server, Blazor (Server), HTML 5, CSS 3.0, SASS
 You can find more information about the API in the [documentation](https://documenter.getpostman.com/view/11494427/TVKBYy3n)
 ## Architecture
 The API project is build using 3-Layered architecture. Also, it is configured to use Azure Key Vault. To use the vault you must provide valid Azure Key Vault properties in a `appsettings.json` file. A big picture of the project is shown below:
-![](@architecture.png)
+![](architecture.png)
 
 
